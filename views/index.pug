@@ -1,0 +1,33 @@
+<!-- Liste de tous les posts -->
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="/css/style.css")
+        link( rel="stylesheet", href="/your-path-to-fontawesome/css/fontawesome.css")
+        link( href="/your-path-to-fontawesome/css/brands.css" ,rel="stylesheet")
+        link( href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet")
+        title MyBlog
+    body 
+      .title 
+         h1 Notre Blog 
+      .ic 
+         a(href='/posts/edit')
+         img.mg(src="/images/icons8-home-page-24.png", alt="", srcset="")
+    if posts.length != 0
+      each val in posts 
+        section 
+          .titre 
+            h2  #{val.titre}
+              .i
+                a(href='/editpost?id=' + val._id)
+                  img.edit(src="/images/icons8-pencil-30.png", alt=val.titre)
+                a(href='/edi/posts/delete/6381539b9378d98e3987ef96t') 
+                  img.del(src="/images/icons8-trash-24(1).png", onclick="alert('Impossible de  supprimer ce post. ') ",alt="")
+          .des 
+            h4  Auteur: #{val.auteur}
+          .resu Resumé
+          .res lisible et contenant du sens est source de distractions, et emp&ecirc;che de se concentrer sur...
+            a(href="/show?id=" + val._id) Lire plus

@@ -1,0 +1,31 @@
+<!-- Detail d'un post -->
+doctype html
+html(lang="en")
+   head
+      meta(charset="UTF-8")
+      meta(http-equiv="X-UA-Compatible", content="IE=edge")
+      meta(name="viewport", content="width=device-width, initial-scale=1.0")
+      link(rel="stylesheet", href="/css/style.css")
+      link( rel="stylesheet", href="/your-path-to-fontawesome/css/fontawesome.css")
+      link( href="/your-path-to-fontawesome/css/brands.css" ,rel="stylesheet")
+      link( href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet")
+      title MyBlog
+   body 
+   .title 
+      h1 Notre Blog 
+   .ic 
+      img.mg(src="/images/icons8-home-page-24.png", alt="", srcset="")
+   .container   
+      p Nouveau Post 
+      form(action="/post", method="POST") 
+         label(for="") Titre 
+         input(type="text" , name="Titre" , placeholder="Titre" , value=(typeof post !== 'undefined')?post.titre:'') 
+         label(for="") Auteur 
+         input(type="text" , name="Auteur" , placeholder="Auteur" , value=(typeof post !== 'undefined')?post.auteur:'') 
+         label(for="")  Résumé
+         -var resume = (typeof post !== 'undefined')?post.resume:''
+         textarea(name="resume", cols="30", rows="2")=resume
+         label(for="")  Contenu -HTML-
+         textarea(name="contenu", cols="30", rows="12")=(typeof post !== 'undefined')?post.content:''
+         if typeof post == 'undefined'
+            button(type="submit") creer
